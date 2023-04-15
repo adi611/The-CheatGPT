@@ -1,0 +1,13 @@
+sentence_transformers
+streamlit
+IPython
+gtts
+audio_recorder_streamlit
+pytesseract
+Pillow
+python-dotenv
+requests
+PyPDF2
+speechrecognition
+wave
+pinecone-client
