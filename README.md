@@ -1,6 +1,6 @@
 # **CheatGPT**
 
-This project demonstrates the integration of multiple NLP models and databases in a streamlit application. The application utilizes the following libraries:
+This project demonstrates the integration of multiple NLP models and databases in a streamlit application. It uses OpenAI's GPT-3 to answer questions based on provided contexts. The contexts are in the form of text extracted from PDF files uploaded by the user. The application utilizes the following libraries:
 
 - **`SentenceTransformer`**: This library is used to encode text input into 384 dimensional embeddings.
 - **`Streamlit`**: This is a web framework for creating and sharing data-driven applications.
