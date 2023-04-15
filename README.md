@@ -1,34 +1,93 @@
-# CheatGPT
-This is a Python program that uses OpenAI's GPT-3 to answer questions based on provided contexts. The contexts are in the form of text extracted from PDF files uploaded by the user.
+# **CheatGPT**
 
-## Prerequisites
-Before running the program, make sure to have the following libraries installed:
+This project demonstrates the integration of multiple NLP models and databases in a streamlit application. The application utilizes the following libraries:
 
-- os
-- streamlit
-- PyPDF2
-- requests
-- pinecone
-- sentence_transformers
+- **`SentenceTransformer`**: This library is used to encode text input into 384 dimensional embeddings.
+- **`Streamlit`**: This is a web framework for creating and sharing data-driven applications.
+- **`IPython.display`**: This library is used to display audio files in the streamlit application.
+- **`gTTS`**: This library is used to convert text to speech.
+- **`audio_recorder_streamlit`**: This library is used to record audio in the streamlit application.
+- **`speech_recognition`**: This library is used to transcribe speech.
+- **`wave`**: This library is used to save audio files in **`.wav`** format.
+- **`io`**: This library is used to load audio files into memory.
+- **`Pinecone`**: This library is used to create and query a vector index for text embeddings.
+- **`requests`**: This library is used to send HTTP requests.
+- **`PyPDF2`**: This library is used to extract text from PDF files.
+- **`pytesseract`**: This library is used to OCR (Optical Character Recognition) image files.
+- **`Pillow`**: This library is used to load images.
 
-You also need to have API keys for Pinecone and OpenAI. Set your Pinecone API key as an environment variable with the name "PINECONE_KEY", and OpenAI API key as an environment variable with the name "GPT_KEY".
+## **Usage**
 
-## How to use
-1. Run the program by executing the command streamlit run <filename>.py in the terminal, replacing <filename> with the name of the Python file.
-2. Upload a PDF file by clicking on the "Choose a PDF file" button.
-3. The program extracts the text from the PDF file and splits it into chunks of 3000 characters.
-4. The chunks are then encoded using SentenceTransformer and added to a Pinecone index.
-5. Enter your query in the text input box and click on the "Submit" button.
-6. The program finds the most relevant chunk of text from the PDF file based on the query using Pinecone's nearest neighbor search.
-7. The program then creates a prompt by combining the context with the query, and passes it to OpenAI's GPT-3 to generate a response.
-8. The response is displayed on the screen.
+Before running the application, you will need to create a **`.env`** file in the root directory of the project with the following keys:
 
-Note: If the answer is not contained within the text and requires some latest information to be updated, the program will print "Sorry Not Sufficient context to answer query".
+- **`PINECONE_KEY`**: API key for Pinecone.
+- **`GPT_KEY`**: API key for OpenAI GPT-3.
 
-## Libraries Used
-- os: Provides a way of using operating system dependent functionality.
-- streamlit: A Python library used for creating web apps.
-- PyPDF2: A Python library used for working with PDF files.
-- requests: A Python library used for sending HTTP requests.
-- pinecone: A managed vector database service for building fast and accurate machine learning applications.
-- sentence_transformers: A Python library used for encoding text into vectors.
+Once you have created the **`.env`** file, you can run the application by running the following command in your terminal:
+
+1. Clone the repository:
+
+```
+git clone https://github.com/adi611/The-CheatGPT.git
+```
+
+1. Navigate to the project directory:
+
+```
+cd The-CheatGPT
+```
+
+1. Install the required dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+1. Run the Streamlit app:
+
+```
+streamlit run app.py
+```
+
+Follow the instructions in the Streamlit app to interact with the different features.
+
+## **Features**
+
+### **Text to Speech**
+
+This section allows you to enter text and convert it to speech. The text is converted to an audio file using the **`gTTS`** library and played back using the **`IPython.display`** library.
+
+### **Speech to Text**
+
+This section allows you to record audio and transcribe it to text using the **`speech_recognition`** library. The audio is recorded using the **`audio_recorder_streamlit`** library and saved to a **`.wav`** file using the **`wave`** library. The text is transcribed using the Google Speech Recognition API.
+
+### **OCR**
+
+This section allows you to upload an image file and extract text using OCR. The image file is loaded using the **`Pillow`** library and the text is extracted using the **`pytesseract`** library.
+
+### **Question Answering**
+
+This section allows you to ask a question and receive an answer from a pre-built corpus of text. The corpus is indexed using the **`Pinecone`** library and the embeddings are generated using the **`SentenceTransformer`** library. The question is then answered using the OpenAI GPT-3 API.
+
+### **Database Update**
+
+This section allows you to upload a PDF file and update the pre-built corpus of text. The PDF file is loaded using the **`PyPDF2`** library and the text is extracted from each page. The text is then split into chunks and indexed using the **`Pinecone`** library.
+
+## **Libraries used**
+
+- **[SentenceTransformers](https://github.com/UKPLab/sentence-transformers)**
+- **[Streamlit](https://streamlit.io/)**
+- **[IPython](https://ipython.org/)**
+- **[gTTS](https://gtts.readthedocs.io/en/latest/)**
+- **[audio-recorder-streamlit](https://github.com/dvcrn/audio-recorder-streamlit)**
+- **[SpeechRecognition](https://github.com/Uberi/speech_recognition)**
+- **[PyPDF2](https://github.com/mstamy2/PyPDF2)**
+- **[Pillow](https://python-pillow.org/)**
+- **[dotenv](https://github.com/theskumar/python-dotenv)**
+- **[Pinecone](https://www.pinecone.io/)**
+- **[requests](https://requests.readthedocs.io/en/latest/)**
+- **[pytesseract](https://github.com/madmaze/pytesseract)**
+
+## **License**
+
+This project is licensed under the MIT License - see the **LICENSE.md** file for details.
