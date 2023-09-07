@@ -31,19 +31,19 @@ Once you have created the **`.env`** file, you can run the application by runnin
 git clone https://github.com/adi611/The-CheatGPT.git
 ```
 
-1. Navigate to the project directory:
+2. Navigate to the project directory:
 
 ```
 cd The-CheatGPT
 ```
 
-1. Install the required dependencies:
+3. Install the required dependencies:
 
 ```
 pip install -r requirements.txt
 ```
 
-1. Run the Streamlit app:
+4. Run the Streamlit app:
 
 ```
 streamlit run app.py
